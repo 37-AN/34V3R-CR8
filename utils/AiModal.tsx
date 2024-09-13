@@ -1,15 +1,9 @@
-const {
-    GoogleGenerativeAI,
-    HarmCategory,
-    HarmBlockThreshold,
-  } = require("@google/generative-ai");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
   
   const apiKey = process.env.NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY;
-  const genAI = new GoogleGenerativeAI(apiKey);
+  const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY);
   
-  const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
-  });
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   
   const generationConfig = {
     temperature: 1,
